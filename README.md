@@ -106,5 +106,8 @@ scrapy pipeline
 
 
 ```
+<br>
 
+### Scrapy_Selenium
+여러 페이지 한번에 크롤링하는 spider 만들기
 
