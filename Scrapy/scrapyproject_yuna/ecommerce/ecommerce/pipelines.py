@@ -6,8 +6,15 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-
+from scrapy.exceptions import DropItem
 
 class EcommercePipeline:
     def process_item(self, item, spider):
-        return item
+        print('process_item', item)
+    
+        # filtering
+        if int(item['price']) > 10000:
+            return item
+        else:
+            raise DropItem("drop item having lower price than 10000")
+        

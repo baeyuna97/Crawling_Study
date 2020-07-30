@@ -42,7 +42,7 @@ element_by_xpath : Xpath 사용 함수
 | :--------- | --------- | --------- | 
 | python_oop1.ipynb | [oop1.ipynb](Scrapy/python_oop1.ipynb)| 객체지향 프로그래밍 |
 | python_oop2.ipynb | [oop2.ipynb](Scrapy/python_oop2.ipynb)| 객체지향 프로그래밍 |
-| middlewares(ecommerce).py | [ecommerce.py](/Users/baeyuna/Documents/Crawling/Scrapy/crawling_scrapy/scrapyproject/ecommerce/ecommerce/middlewares.py)| Scrapy ecommerce 크롤러 |
+| middlewares(ecommerce).py | [ecommerce.py](/Users/baeyuna/Documents/Crawling/Scrapy/scrapyproject_yuna/ecommerce/ecommerce/spiders/gmarket_best.py)| Scrapy gmarket 크롤러 |
 | middlewares(naveropenapi).py | [naveropenapi.py](/Users/baeyuna/Documents/Crawling/Scrapy/crawling_scrapy/scrapyproject/naveropenapi/naveropenapi/middlewares.py)| Scrapy ecommerce 크롤러 |
 
 ```
@@ -92,6 +92,17 @@ scrapy response 사용법
 scrapy 데이터 저장하기
     scrapy crawl 크롤러명 -o 저장할파일명 -t 저장포멧 
     # json은 한글이 깨짐 -> setting.py에 FEED_EXPORT_ENCODING = 'utf-8' 설정
+
+scrapy pipeline
+    - 아이템 데이터 후처리
+        - 일부 아이템을 저장하지 않거나,
+        - 중복되는 아이템을 저장하지 않거나,
+        - 데이터베이스 등에 저장하거나,
+        - 특별한 포멧으로 아이템 저장하고 싶거나
+
+    아이템이 저장되려 할 때마다, pipelines.py의 process_item 함수를 호출한다.
+
+
 ```
 
 
