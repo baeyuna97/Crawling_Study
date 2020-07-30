@@ -47,20 +47,10 @@ element_by_xpath : Xpath 사용 함수
 
 ```
 * 단원별 요약 😊
-Scrapy 프레임워크  
-    - 함수와 코드를 미리 작성해놨다.
-    - 특정 함수를 특정 위치에 어떻게 사용해야 하는지, 작성해야 하는지를 정해놓은 프로그램
-    - 직접 구현할 필요없다 !! 
-
 Scrapy 장점
     1. 크롤링을 안정적으로 할 수 있다.
     2. 크롤링을 좀 더 빠르게 할 수 있다. (멀티 프로세싱)
     3. 다양한 크롤링 관련 기능 (데이터를 다양한 포멧으로 저장 가능)
-
-사용방법
-    - 실제 크롤링할 스파이더(spider, scrapy 기반 크롤러 프로그램) 생성
-    - 크롤링할 사이트, 아이템에 대한 selector 설정
-    - 크롤러 실행 
 
 Scrapy code
     1. scrapy startproject 프로젝트명 
@@ -68,18 +58,40 @@ Scrapy code
         # 만들어진 템플릿을 가지고 크롤링을 만든다.
     2. scrapy genspider <크롤러이름> <크롤링페이지주소>
         # spider(크롤러) 작성 
+        # start_urls 생성 시 자동으로 https:// 가 붙으므로 크롤링페이지주소 작성 시, http:// 안붙이는 게 좋음
+        # https://만 지원한다면!! spider 열어서 's' 붙여줘야함.
     3. scrapy crawl 크롤러이름
-        # spider(크롤러) 실행
+        # spider(크롤러) 실행 
 
-Scrapy tamplet
+Scrapy tamplet 
     scrapy.cfg
-    ecommerce/
+    프로젝트명/
         __init__.py
-        items.py
-        pipelines.py
-        settings.py
+        items.py # 어떤 아이템을 가져올건지 선언, 크롤링한 데이터를 item으로 전달해줌 
+        pipelines.py 
+        settings.py # 
         spiders/
             __init__.py
+            크롤러이름.py # 크롤러의 parse함수에서 items.py item에 넣을 데이터 가져옴
+
+scrapy shell
+    scrapy shell 주소
+    : 해당 주소에서 파싱한 정보 가져와 명령어 하나씩 적용해 정보 볼 수 있음
+
+scrapy response 사용법
+    - response.css() : css selector로 데이터 가져오기
+        response.scc('head > title').get()    # 하나만 가져오기
+        response.scc('head > title').getall() # 리스트 형태로 여러개 가져오기
+        response.scc('head > title::text').get()    # 텍스트만 가져오기
+    - response.xpath()
+        response.xpath('//div[@class="best-list"]/ul/li/a/text()').getall() 
+    
+    - 정규표현식 적용 가능
+        response.xpath('//div[@class="best-list"]/ul/li/a/text()')[1].re('(\w+)')
+
+scrapy 데이터 저장하기
+    scrapy crawl 크롤러명 -o 저장할파일명 -t 저장포멧 
+    # json은 한글이 깨짐 -> setting.py에 FEED_EXPORT_ENCODING = 'utf-8' 설정
 ```
 
 
