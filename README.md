@@ -9,7 +9,8 @@
 
 
 ```
-* 단원별 요약 😊
+* 단원별 요약 😊  
+
 Xpath : XML 문서의 특정 요소나 속성에 접근하기 위한 경로를 지정하는 언어
 
 / : 절대경로
@@ -46,7 +47,8 @@ element_by_xpath : Xpath 사용 함수
 | middlewares(naveropenapi).py | [naveropenapi.py](/Users/baeyuna/Documents/Crawling/Scrapy/crawling_scrapy/scrapyproject/naveropenapi/naveropenapi/middlewares.py)| Scrapy ecommerce 크롤러 |
 
 ```
-* 단원별 요약 😊
+* 단원별 요약 😊  
+
 Scrapy 장점
     1. 크롤링을 안정적으로 할 수 있다.
     2. 크롤링을 좀 더 빠르게 할 수 있다. (멀티 프로세싱)
