@@ -39,7 +39,7 @@ element_by_xpath : Xpath 사용 함수
 
 ### Scrapy
 | File    | Link  | explanation |
-| :--------- | --------- | 
+| :--------- | --------- | --------- | 
 | python_oop1.ipynb | [oop1.ipynb](Scrapy/python_oop1.ipynb)| 객체지향 프로그래밍 |
 | python_oop2.ipynb | [oop2.ipynb](Scrapy/python_oop2.ipynb)| 객체지향 프로그래밍 |
 | middlewares(ecommerce).py | [ecommerce.py](/Users/baeyuna/Documents/Crawling/Scrapy/crawling_scrapy/scrapyproject/ecommerce/ecommerce/middlewares.py)| Scrapy ecommerce 크롤러 |
