@@ -109,5 +109,16 @@ scrapy pipeline
 <br>
 
 ### Scrapy_Selenium
+
 여러 페이지 한번에 크롤링하는 spider 만들기
 
+| File    | Link  | explanation |
+| :--------- | --------- | --------- | 
+|  | [.py](Scrapy_Selenium/python_oop1.ipynb)|  |
+|  | [.py](Scrapy_Selenium/python_oop2.ipynb)|  |
+
+
+```
+* 단원별 요약 😊  
+
+```
