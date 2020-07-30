@@ -23,17 +23,16 @@ Xpath : XML 문서의 특정 요소나 속성에 접근하기 위한 경로를 �
 //div[@*] : 속성이 하나라도 있는 div 태그 선택
 
 element_by_xpath : Xpath 사용 함수 
-```
+
 예)  title = driver.find_element_by_xpath('//*[@id="cSub"]/div/h3')
   -> 어디에서나 (//) 태그가 cSub인 아이디를 찾아서 ([@id=]) 그 안 div 태그안에 h3 찾은 셈
     print(title.text)
-```
-```
-# 문서 전체에서 title 검색
-title = driver.find_element_by_xpath('//title')
-# head 부분은 get_attribute로 나옴
-print(title.get_attribute('text'))
-```
+
+    # 문서 전체에서 title 검색
+    title = driver.find_element_by_xpath('//title')
+    # head 부분은 get_attribute로 나옴
+    print(title.get_attribute('text'))
+
 
 ```
 <br>
