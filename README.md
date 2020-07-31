@@ -59,6 +59,7 @@ Scrapy code
         # 프로젝트 만들겠다.
         # 만들어진 템플릿을 가지고 크롤링을 만든다.
     2. scrapy genspider <크롤러이름> <크롤링페이지주소>
+        # 안으로 2번 들어가서, 
         # spider(크롤러) 작성 
         # start_urls 생성 시 자동으로 https:// 가 붙으므로 크롤링페이지주소 작성 시, http:// 안붙이는 게 좋음
         # https://만 지원한다면!! spider 열어서 's' 붙여줘야함.
@@ -79,12 +80,16 @@ Scrapy tamplet
 scrapy shell
     scrapy shell 주소
     : 해당 주소에서 파싱한 정보 가져와 명령어 하나씩 적용해 정보 볼 수 있음
+    : 바로바로 확인할 수 있어, 내가 찾은 선택자가 맞는지 확인 할 때 사용
 
 scrapy response 사용법
     - response.css() : css selector로 데이터 가져오기
         response.scc('head > title').get()    # 하나만 가져오기
         response.scc('head > title').getall() # 리스트 형태로 여러개 가져오기
         response.scc('head > title::text').get()    # 텍스트만 가져오기
+        response.css('div.gbest-cate ul.by-group li a::attr("href")').getall() 
+                                                    # ::attr("가져오려는 속성값") 
+
     - response.xpath()
         response.xpath('//div[@class="best-list"]/ul/li/a/text()').getall() 
     
@@ -104,6 +109,14 @@ scrapy pipeline
 
     아이템이 저장되려 할 때마다, pipelines.py의 process_item 함수를 호출한다.
 
+setting.py
+    LOG_FILE = 'log.txt' 
+    # 크롤링한 데이터가 너무 많을 경우 터미널 상으로 다 확인하기 어려움 
+    # 특정파일에 로그 넣어 데이터를 생성하여 터미널 내용 확인가능
+
+    CONCURRENT_REQUEST = 1
+    # 한번에 크롤링 할 수 있는 사이트 1개 -> 하나 크롤링하고 저장 -> 순서대로 랭킹 저자장 (느림....)
+    # scrapy는 기본 16개 병렬처리 (=16)
 
 ```
 <br>
@@ -114,11 +127,18 @@ scrapy pipeline
 
 | File    | Link  | explanation |
 | :--------- | --------- | --------- | 
-|  | [.py](Scrapy_Selenium/python_oop1.ipynb)|  |
-|  | [.py](Scrapy_Selenium/python_oop2.ipynb)|  |
+| gmarket_category_all | [gmarket_category_all.py](Scrapy_Selenium/scrapy2/scrapy2/spiders/gmarket_category_all.py)| 여러 항복 한번에 크롤링 |
 
 
 ```
 * 단원별 요약 😊  
+
+meta
+    예) meta={'maincategory_name':category_names[index]})
+    # 함수에서 쓰일 값 전달
+
+# 범위를 좁힌 상태로만 가져오기에 뒤이어 css select 사용가능
+best_items = response.css('div.best-list') 
+    for index, item in enumerate(best_items[1].css('li')):
 
 ```
