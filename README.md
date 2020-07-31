@@ -146,3 +146,21 @@ setting.py
 
 
 ```
+<br>
+
+### Open API
+
+naver Open API 사용
+    openapi.naver.com/v1/search/shop.json?query=
+
+
+| File    | Link  | explanation |
+| :--------- | --------- | --------- | 
+|  | [gmarket_category_all.py](Scrapy_Selenium/scrapy2/scrapy2/spiders/gmarket_category_all.py)| 여러 항복 한번에 크롤링 |
+
+
+```
+* 단원별 요약 😊  
+
+
+```
