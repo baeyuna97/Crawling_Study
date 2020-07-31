@@ -109,15 +109,6 @@ scrapy pipeline
 
     아이템이 저장되려 할 때마다, pipelines.py의 process_item 함수를 호출한다.
 
-setting.py
-    LOG_FILE = 'log.txt' 
-    # 크롤링한 데이터가 너무 많을 경우 터미널 상으로 다 확인하기 어려움 
-    # 특정파일에 로그 넣어 데이터를 생성하여 터미널 내용 확인가능
-
-    CONCURRENT_REQUEST = 1
-    # 한번에 크롤링 할 수 있는 사이트 1개 -> 하나 크롤링하고 저장 -> 순서대로 랭킹 저자장 (느림....)
-    # scrapy는 기본 16개 병렬처리 (=16)
-
 ```
 <br>
 
@@ -140,5 +131,18 @@ meta
 # 범위를 좁힌 상태로만 가져오기에 뒤이어 css select 사용가능
 best_items = response.css('div.best-list') 
     for index, item in enumerate(best_items[1].css('li')):
+
+setting.py
+    LOG_FILE = 'log.txt' 
+    # 크롤링한 데이터가 너무 많을 경우 터미널 상으로 다 확인하기 어려움 
+    # 특정파일에 로그 넣어 데이터를 생성하여 터미널 내용 확인가능
+
+    CONCURRENT_REQUEST = 1
+    # 한번에 크롤링 할 수 있는 사이트 1개 -> 하나 크롤링하고 저장 -> 순서대로 랭킹 저자장 (느림....)
+    # scrapy는 기본 16개 병렬처리 (=16)
+
+    FEED_EXPORT_FIELDS =[칼럼 리스트 순서대로 삽입]
+    # 원하는 순서대로 데이터 넣어서 저장하고 싶다.
+
 
 ```
